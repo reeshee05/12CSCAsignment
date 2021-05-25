@@ -59,11 +59,11 @@ class GameStarter:
 
         # Create the entry box
         self.entry_box = Entry(self.quiz_frame)
-        self.entry_box.grid(row=1)
+        self.entry_box.place(x=160, y=245)
 
         # Create a Button
         self.continue_button = Button(self.quiz_frame, text="Enter", bg="skyblue", command=self.name_collection)
-        self.continue_button.grid(row=2)
+        self.continue_button.place(x=370, y=240)
 
     # When user types name it goes here
     def name_collection(self):
