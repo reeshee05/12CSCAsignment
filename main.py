@@ -45,7 +45,7 @@ class Scenario1:
 
     background_color = "Grey30"
 
-    self.game_frame = Frame(parent, bg = background_color, padx=91, pady=4)
+    self.game_frame = Frame(parent, bg = background_color, padx=90, pady=26)
     self.game_frame.grid()
 
     # Description/Question
