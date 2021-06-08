@@ -41,34 +41,43 @@ class GameStarter:
 
 # First Scenario
 class Scenario1:
-  def __init__(self, parent):
+    def __init__(self, parent):
 
-    background_color = "Grey30"
+      background_color = "Grey30"
 
-    self.game_frame = Frame(parent, bg = background_color, padx=90, pady=26)
-    self.game_frame.grid()
+      self.game_frame = Frame(parent, bg = background_color, padx=90, pady=26)
+      self.game_frame.grid()
 
-    # Description/Question
-    self.question_label = Label(self.game_frame, text="In a cabin somewhere in the woods...", font=("Roman", "12"), fg="white", bg = background_color, padx=50, pady=30)
-    self.question_label.grid(row=1, padx=10, pady=10)
+      # Description/Question
+      self.question_label = Label(self.game_frame, text="""In a cabin somewhere in the woods...""", font=  ("Roman", "12"), fg="white", bg = background_color, padx=50, pady=30)
+      self.question_label.grid(row=1, padx=10, pady=10)
 
-    self.var1 = IntVar()
+      self.var1 = IntVar()
 
-    # Button 1
-    self.rb1 = Radiobutton(self.game_frame, text="Get out of bed", font=("Skia","10"), bg="grey50", fg="white", value=1, padx=5, pady=5, variable=self.var1, indicator = 0)
-    self.rb1.grid(row=2, sticky=W)
+      # Button 1
+      self.rb1 = Radiobutton(self.game_frame, text="Get out of bed", font=("Skia","10"), bg="grey50",  fg="white", value=1, padx=5, pady=5, variable=self.var1, indicator = 0)
+      self.rb1.grid(row=2, sticky=W)
 
-    # Button 2
-    self.rb2 = Radiobutton(self.game_frame, text="Sleep in for five more minutes", font=("Roman","10"), bg="grey50", fg="white", value=2, padx=5, pady=5, variable=self.var1, indicator = 0)
-    self.rb2.grid(row=3, sticky=W)
+      # Button 2
+      self.rb2 = Radiobutton(self.game_frame, text="Sleep in for five more minutes", font=("Roman","10"), bg="grey50", fg="white", value=2, padx=5, pady=5, variable=self.var1, indicator = 0)
+      self.rb2.grid(row=4, sticky=W)
 
-    # Button 3
-    self.rb3 = Radiobutton(self.game_frame, text="Pretend to be dead", font=("Helvetica","10"), bg="grey50", fg="white", value=3, padx=5, pady=5, variable=self.var1, indicator = 0)
-    self.rb3.grid(row=4, sticky=W)
+      # Button 3
+      self.rb3 = Radiobutton(self.game_frame, text="Pretend to be dead", font=("Helvetica","10"), bg="grey50", fg="white", value=3, padx=5, pady=5, variable=self.var1, indicator = 0)
+      self.rb3.grid(row=6, sticky=W)
 
-    # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Helvetica", "12", "bold"), bg="grey70", fg="white")
-    self.game_instance.grid(row=5, padx=10, pady=10)
+      # Back Button
+      self.game_instance = Button(self.game_frame, text="Back", font=("Helvetica", "12", "bold"), bg="grey70", fg="white", command=self.title_page)
+      self.game_instance.grid(row=7, sticky=W, padx=10, pady=10)
+
+      # Confirm Button
+      self.game_instance = Button(self.game_frame, text="Confirm", font=("Helvetica", "12", "bold"), bg="grey70", fg="white")
+      self.game_instance.grid(row=7, sticky=E, padx=10, pady=10)
+  
+    # Back_Page
+    def title_page(self):
+        self.game_frame.destroy()
+        GameStarter(root)
 
 
 class Scenario2:
