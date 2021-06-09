@@ -43,7 +43,7 @@ class Scenario1:
     def __init__(self, parent):
 
         # Image Background
-        self.bg_image = Image.open("bg_image.jpg")
+        self.bg_image = Image.open("s1.jpg")
         self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
         self.bg_image = ImageTk.PhotoImage(self.bg_image)
 
@@ -54,33 +54,23 @@ class Scenario1:
         self.image_label = Label(self.game_frame, image = self.bg_image)
         self.image_label.grid(row=1)
 
-        # Description/Question
-        self.question_label = Label(self.game_frame, text="""In a cabin somewhere in the woods... you hear
-  a loud noise amongst the trees... they appear
-  to be alive. What do you do?""", font=  ("Skia", "12"), fg="white", bg = "grey50", padx=50, pady=30)
-        self.question_label.place(x=50, y=50)
-
         self.var1 = IntVar()
 
         # Button 1
-        self.rb1 = Radiobutton(self.game_frame, text="""Get out of bed and get ready for the day ahead""", font=("Skia","11"), bg="grey50",    fg="white", value=1, padx=5, pady=5, variable=self.var1, indicator = 0)
-        self.rb1.place(x=50, y=190)
+        self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+        self.rb1.place(x=30, y=158)
 
         # Button 2
-        self.rb2 = Radiobutton(self.game_frame, text="Sleep in for five more minutes, you deserve it", font=("Skia","11"), bg="grey50", fg="white", value=2, padx=5, pady=5, variable=self.var1, indicator = 0)
-        self.rb2.place(x=50, y=240)
-
-        # Button 3
-        self.rb3 = Radiobutton(self.game_frame, text="Pretend to be dead, at least for five more minutes", font=("Skia","10"), bg="grey50", fg="white", value=3, padx=5, pady=5, variable=self.var1, indicator = 0)
-        self.rb3.place(x=50, y=290)
+        self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+        self.rb2.place(x=30, y=249)
 
         # Back Button
         self.game_instance = Button(self.game_frame, text="Back", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.title_page)
-        self.game_instance.place(x=50, y=340)
+        self.game_instance.place(x=30, y=330)
 
         # Confirm Button
         self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white")
-        self.game_instance.place(x=435, y=340)
+        self.game_instance.place(x=465, y=340)
   
     # Back_Page
     def title_page(self):
