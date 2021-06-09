@@ -10,12 +10,11 @@ class GameStarter:
         
         # Image Background
         self.bg_image = Image.open("title_image.jpg")
-        self.bg_image = self.bg_image.resize((600, 300), Image.ANTIALIAS)
+        self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
         self.bg_image = ImageTk.PhotoImage(self.bg_image)
         
+        # Uses Grid Frame
         self.game_frame = Frame(parent)
-        
-        # Uses Grid Format
         self.game_frame.grid()
 
         # Background Image Location
@@ -24,11 +23,11 @@ class GameStarter:
 
         # Entry box
         self.entry_box = Entry(self.game_frame)
-        self.entry_box.place(x=160, y=245)
+        self.entry_box.place(x=160, y=300)
 
         # Button
         self.continue_button = Button(self.game_frame, text="Enter", bg="grey70", font=("Roman"), command=self.name_collection)
-        self.continue_button.place(x=370, y=240)
+        self.continue_button.place(x=370, y=295)
 
     # Name Collection
     def name_collection(self):
@@ -43,36 +42,45 @@ class GameStarter:
 class Scenario1:
     def __init__(self, parent):
 
-      background_color = "Grey30"
+        # Image Background
+        self.bg_image = Image.open("bg_image.jpg")
+        self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+        self.bg_image = ImageTk.PhotoImage(self.bg_image)
 
-      self.game_frame = Frame(parent, bg = background_color, padx=90, pady=26)
-      self.game_frame.grid()
+        self.game_frame = Frame(parent)
+        self.game_frame.grid()
 
-      # Description/Question
-      self.question_label = Label(self.game_frame, text="""In a cabin somewhere in the woods...""", font=  ("Roman", "12"), fg="white", bg = background_color, padx=50, pady=30)
-      self.question_label.grid(row=1, padx=10, pady=10)
+        # Background Image Location
+        self.image_label = Label(self.game_frame, image = self.bg_image)
+        self.image_label.grid(row=1)
 
-      self.var1 = IntVar()
+        # Description/Question
+        self.question_label = Label(self.game_frame, text="""In a cabin somewhere in the woods... you hear
+  a loud noise amongst the trees... they appear
+  to be alive. What do you do?""", font=  ("Skia", "12"), fg="white", bg = "grey50", padx=50, pady=30)
+        self.question_label.place(x=50, y=50)
 
-      # Button 1
-      self.rb1 = Radiobutton(self.game_frame, text="Get out of bed", font=("Skia","10"), bg="grey50",  fg="white", value=1, padx=5, pady=5, variable=self.var1, indicator = 0)
-      self.rb1.grid(row=2, sticky=W)
+        self.var1 = IntVar()
 
-      # Button 2
-      self.rb2 = Radiobutton(self.game_frame, text="Sleep in for five more minutes", font=("Roman","10"), bg="grey50", fg="white", value=2, padx=5, pady=5, variable=self.var1, indicator = 0)
-      self.rb2.grid(row=4, sticky=W)
+        # Button 1
+        self.rb1 = Radiobutton(self.game_frame, text="""Get out of bed and get ready for the day ahead""", font=("Skia","11"), bg="grey50",    fg="white", value=1, padx=5, pady=5, variable=self.var1, indicator = 0)
+        self.rb1.place(x=50, y=190)
 
-      # Button 3
-      self.rb3 = Radiobutton(self.game_frame, text="Pretend to be dead", font=("Helvetica","10"), bg="grey50", fg="white", value=3, padx=5, pady=5, variable=self.var1, indicator = 0)
-      self.rb3.grid(row=6, sticky=W)
+        # Button 2
+        self.rb2 = Radiobutton(self.game_frame, text="Sleep in for five more minutes, you deserve it", font=("Skia","11"), bg="grey50", fg="white", value=2, padx=5, pady=5, variable=self.var1, indicator = 0)
+        self.rb2.place(x=50, y=240)
 
-      # Back Button
-      self.game_instance = Button(self.game_frame, text="Back", font=("Helvetica", "12", "bold"), bg="grey70", fg="white", command=self.title_page)
-      self.game_instance.grid(row=7, sticky=W, padx=10, pady=10)
+        # Button 3
+        self.rb3 = Radiobutton(self.game_frame, text="Pretend to be dead, at least for five more minutes", font=("Skia","10"), bg="grey50", fg="white", value=3, padx=5, pady=5, variable=self.var1, indicator = 0)
+        self.rb3.place(x=50, y=290)
 
-      # Confirm Button
-      self.game_instance = Button(self.game_frame, text="Confirm", font=("Helvetica", "12", "bold"), bg="grey70", fg="white")
-      self.game_instance.grid(row=7, sticky=E, padx=10, pady=10)
+        # Back Button
+        self.game_instance = Button(self.game_frame, text="Back", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.title_page)
+        self.game_instance.place(x=50, y=340)
+
+        # Confirm Button
+        self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white")
+        self.game_instance.place(x=435, y=340)
   
     # Back_Page
     def title_page(self):
