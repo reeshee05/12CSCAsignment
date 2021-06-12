@@ -68,6 +68,9 @@ class Scenario1:
     self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=465, y=340)
 
+    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_label.place(x=220, y=350)
+
   # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
@@ -81,6 +84,7 @@ class Scenario1:
       self.game_frame.destroy()
       Scenario4(root)
     else:
+      self.error_label.config(text = "Please select an option")
 
 # (OD) Reponse 1 
 class Scenario2:
