@@ -27,12 +27,20 @@ class GameStarter:
     self.continue_button = Button(self.game_frame, text="Enter", bg="grey70", font=("Skia"), command=self.name_collection)
     self.continue_button.place(x=370, y=295)
 
+    # Error Message (Boundary testing)
+    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_label.place(x=65, y=350)
+
   # Name Collection
   def name_collection(self):
     name = self.entry_box.get()
-    print(name)
-    self.game_frame.destroy()
-    Scenario1(root)
+    if len(name) <=20 and len(name) >=3:
+      print(name)
+      self.game_frame.destroy()
+      Scenario1(root)
+    else:
+      self.error_label.config(text = "Please enter a name which has a min of 3 letters and max of 20 letters.")
+
 
 # Opening Dialogue (OD)
 class Scenario1:
@@ -68,6 +76,7 @@ class Scenario1:
     self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=465, y=340)
 
+    # Error Message (Boundary testing)
     self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
     self.error_label.place(x=220, y=350)
 
@@ -83,6 +92,7 @@ class Scenario1:
     elif choice == 3:
       self.game_frame.destroy()
       Scenario4(root)
+    # Boundary testing
     else:
       self.error_label.config(text = "Please select an option")
 
