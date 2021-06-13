@@ -423,18 +423,22 @@ class Scenario5:
     if choice == 1:
       global hp
       global att
+      global inventory
       hp = hp + 120
       att = att + 10
+      inventory.append("Short Sword and Metal Shield")
       self.game_frame.destroy()
       Scenario6(root)
     elif choice == 2:
       hp = hp + 100
       att = att + 20
+      inventory.append("A black hood, leather armour and a few daggers")
       self.game_frame.destroy()
       Scenario6(root)
     elif choice == 3:
       hp = hp + 80
       att = att + 50
+      inventory.append("A book full of arcane spells and incantations")
       self.game_frame.destroy()
       Scenario6(root)
     else:
@@ -479,11 +483,13 @@ class Scenario6:
     choice = self.var1.get()
     if choice == 1:
       global inventory
-      inventory.append("Blue Healing Potion")
+      inventory.append("""
+      Blue Healing Potion""")
       self.game_frame.destroy()
       Scenario7(root)
     elif choice == 2:
-      inventory.append("Red Power Potion")
+      inventory.append("""
+      Red Power Potion""")
       self.game_frame.destroy()
       Scenario7(root)
     else:
@@ -831,6 +837,22 @@ class combat1:
     self.image_label.grid(row=1)
 
     self.var1 = IntVar()
+
+    # HP
+    self.hp = Label(self.game_frame, text = hp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
+    self.hp.place(x=122, y=123)
+
+    # XP
+    self.xp = Label(self.game_frame, text = xp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
+    self.xp.place(x=315, y=123)
+
+    # Attack
+    self.attack = Label(self.game_frame, text = att, font=("Skia", "12", "bold"), bg="#666666", fg="white")
+    self.attack.place(x=500, y=123)
+
+    # Inventory
+    self.inventory = Label(self.game_frame, text = inventory, font=("Skia", "6", "bold"), bg="#666666", fg="white")
+    self.inventory.place(x=298, y=220)
 
     # Option 1
     self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
