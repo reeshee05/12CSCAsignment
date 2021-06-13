@@ -4,6 +4,7 @@ import random
 from PIL import ImageTk, Image
 
 # Variables for User
+names = []
 hp = 0
 att = 0
 xp = 0
@@ -15,6 +16,8 @@ inventory = []
 ass_hp = 50
 ass_att = 7
 
+global questions_answers
+asked = []
 
 questions_answers = {
   1: [
@@ -89,6 +92,7 @@ class GameStarter:
   def name_collection(self):
     name = self.entry_box.get()
     if len(name) <=20 and len(name) >=3:
+      names.append(name)
       print(name)
       self.game_frame.destroy()
       Scenario1(root)
@@ -1300,7 +1304,7 @@ class Scenario20:
       Scenario21(root)
     elif choice == 2:
       self.game_frame.destroy()
-      Scenario1(root)
+      Scenario21(root)
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1321,22 +1325,22 @@ class Scenario21:
     self.image_label = Label(self.game_frame, image = self.bg_image)
     self.image_label.grid(row=1)
 
-    self.image_label = Label(self.game_frame, text=question_answers[qnum][0], font=("Skia", "12", "bold"), bg="grey70", fg="white")
+    self.image_label = Label(self.game_frame, text=questions_answers[qnum][0], font=("Skia", "12", "bold"), bg="grey70", fg="white")
     self.image_label.place(x=150, y=150)
 
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, text=question_answers[qnum][1], value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb1 = Radiobutton(self.game_frame, text=questions_answers[qnum][1], value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
     self.rb1.place(x=30, y=159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, text=question_answers[qnum][2], value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb2 = Radiobutton(self.game_frame, text=questions_answers[qnum][2], value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
     self.rb2.place(x=30, y=251)
 
     # Option 3
-    self.rb3 = Radiobutton(self.game_frame, text=question_answers[qnum][3], value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb3 = Radiobutton(self.game_frame, text=questions_answers[qnum][3], value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
     self.rb3.place(x=30, y=251)
 
     # Confirm Button
