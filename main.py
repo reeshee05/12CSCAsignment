@@ -824,6 +824,141 @@ class Scenario16:
     else:
       self.error_label.config(text = "Please select an option")
 
+# Attack hit and win
+class a_win:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("a_win.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Continue Button
+    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=250, y=320)
+
+    # Different Scenarios
+  def test_program(self):
+      self.game_frame.destroy()
+      Scenario1(root)
+
+# Attack and still on
+class a_on:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("a_on.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Continue Button
+    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=250, y=320)
+
+    # Different Scenarios
+  def test_program(self):
+      self.game_frame.destroy()
+      Combat1(root)
+
+# Attack miss
+class a_loss:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("a_loss.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Continue Button
+    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=250, y=320)
+
+    # Different Scenarios
+  def test_program(self):
+      self.game_frame.destroy()
+      Combat1(root)
+
+# Defence Win
+class d_on:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("d_on.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Continue Button
+    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=250, y=320)
+
+    # Different Scenarios
+  def test_program(self):
+      self.game_frame.destroy()
+      Combat1(root)
+
+# Defence Loss
+class d_loss:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("d_loss.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Continue Button
+    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=250, y=320)
+
+    # Different Scenarios
+  def test_program(self):
+      self.game_frame.destroy()
+      Combat1(root)
+
 # Combat 1
 class Combat1:
   def __init__(self, parent):
@@ -892,31 +1027,33 @@ class Combat1:
     if choice == 1:
       if random.randint(0,100) <= 66:
         global hp
+        global xp
         global ass_hp
         global att
         ass_hp = ass_hp - att
         if (ass_hp <=0):
+          xp = xp + 100
           self.game_frame.destroy()
-          Combat1(root)
-          print(ass_hp)
+          Scenario1(root)
         elif (ass_hp >=1):
-          hp = hp - ass_att
+          xp = xp + 20
           self.game_frame.destroy()
-          Combat1(root)
+          a_on(root)
       else:
         hp = hp - ass_att
         self.game_frame.destroy()
-        Combat1(root)
+        a_loss(root)
         print(ass_hp)
     elif choice == 2:
       if random.randint(0,100) <= 66:
+        xp = xp + 50
         self.game_frame.destroy()
-        Combat1(root)
+        d_on(root)
       else:
         hp = hp - ass_att
-        if (hp <=0):
+        if (hp >=1):
           self.game_frame.destroy()
-          Scenario1(root)
+          d_loss(root)
         else:
           self.game_frame.destroy()
           Scenario1(root)
