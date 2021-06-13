@@ -7,12 +7,54 @@ from PIL import ImageTk, Image
 hp = 0
 att = 0
 xp = 0
+tries = 2
 gear = []
 inventory = []
 
 # Variables for Assassin
 ass_hp = 50
 ass_att = 7
+
+
+questions_answers = {
+  1: [
+    "What city are you in?",
+    "Jail",
+    "Gale",
+    "Dale",
+    3],
+
+  2: [
+    "Describe how the assassinated man looked",
+    "Purple skin and curved horns",
+    "Greasy hair and crooked nose",
+    "Sharp teeth and a leathery tail",
+    1],
+
+  3: [
+    "What was the assassinated mans politcal party?",
+    "Mephisto",
+    "Nightmare",
+    "Aragoth",
+    1],
+
+  4: [
+    "What was the assassinated mans name?",
+    "Hunter",
+    "Apex",
+    "Alex",
+    2],
+
+}
+
+def randomiser():
+  global qnum 
+  qnum = random.randint(1, 4)
+  if qnum not in asked:
+    asked.append(qnum)
+  elif qnum in asked:
+    randomiser()
+
 
 # Title Page
 class GameStarter:
@@ -820,7 +862,7 @@ class Scenario16:
       Combat1(root)
     elif choice == 2:
       self.game_frame.destroy()
-      Scenario1(root)
+      Scenario18(root)
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -849,7 +891,7 @@ class a_win:
     # Different Scenarios
   def test_program(self):
       self.game_frame.destroy()
-      Scenario1(root)
+      Scenario17(root)
 
 # Attack and still on
 class a_on:
@@ -1073,6 +1115,251 @@ class Combat1:
         self.error_potion.config(text = "You already used this")
     else:
       self.error_label.config(text = "Please select an option")
+
+
+# Talking to Guards after battle (TGB)
+class Scenario17:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("s17.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Option 1
+    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb1.place(x=30, y=159)
+
+    # Option 2
+    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb2.place(x=30, y=251)
+
+    # Confirm Button
+    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=465, y=340)
+
+    # Error Message 
+    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_label.place(x=220, y=350)
+
+    # Different Scenarios
+  def test_program(self):
+    choice = self.var1.get()
+    if choice == 1:
+      self.game_frame.destroy()
+      Scenario18(root)
+    elif choice == 2:
+      self.game_frame.destroy()
+      Scenario1(root)
+    else:
+      self.error_label.config(text = "Please select an option")
+
+
+# Talking to Guards after fleeing (TGF)
+class Scenario18:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("s18.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Option 1
+    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb1.place(x=30, y=159)
+
+    # Option 2
+    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb2.place(x=30, y=251)
+
+    # Confirm Button
+    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=465, y=340)
+
+    # Error Message 
+    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_label.place(x=220, y=350)
+
+    # Different Scenarios
+  def test_program(self):
+    choice = self.var1.get()
+    if choice == 1:
+      self.game_frame.destroy()
+      Scenario20(root)
+    elif choice == 2:
+      self.game_frame.destroy()
+      Scenario1(root)
+    else:
+      self.error_label.config(text = "Please select an option")
+
+
+# TFA Response 1
+class Scenario19:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("s19.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Option 1
+    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb1.place(x=30, y=159)
+
+    # Option 2
+    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb2.place(x=30, y=251)
+
+    # Confirm Button
+    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=465, y=340)
+
+    # Error Message 
+    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_label.place(x=220, y=350)
+
+    # Different Scenarios
+  def test_program(self):
+    choice = self.var1.get()
+    if choice == 1:
+      self.game_frame.destroy()
+      Scenario20(root)
+    elif choice == 2:
+      self.game_frame.destroy()
+      Scenario1(root)
+    else:
+      self.error_label.config(text = "Please select an option")
+
+
+# Interrogation
+class Scenario20:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("s20.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.var1 = IntVar()
+
+    # Option 1
+    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb1.place(x=30, y=159)
+
+    # Option 2
+    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb2.place(x=30, y=251)
+
+    # Confirm Button
+    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=465, y=340)
+
+    # Error Message 
+    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_label.place(x=220, y=350)
+
+    # Different Scenarios
+  def test_program(self):
+    choice = self.var1.get()
+    if choice == 1:
+      self.game_frame.destroy()
+      Scenario21(root)
+    elif choice == 2:
+      self.game_frame.destroy()
+      Scenario1(root)
+    else:
+      self.error_label.config(text = "Please select an option")
+
+
+# Questions
+class Scenario21:
+  def __init__(self, parent):
+
+    # Image Background
+    self.bg_image = Image.open("blank.jpg")
+    self.bg_image = self.bg_image.resize((600, 400), Image.ANTIALIAS)
+    self.bg_image = ImageTk.PhotoImage(self.bg_image)
+
+    self.game_frame = Frame(parent)
+    self.game_frame.grid()
+
+    # Background Image Location
+    self.image_label = Label(self.game_frame, image = self.bg_image)
+    self.image_label.grid(row=1)
+
+    self.image_label = Label(self.game_frame, text=question_answers[qnum][0], font=("Skia", "12", "bold"), bg="grey70", fg="white")
+    self.image_label.place(x=150, y=150)
+
+
+    self.var1 = IntVar()
+
+    # Option 1
+    self.rb1 = Radiobutton(self.game_frame, text=question_answers[qnum][1], value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb1.place(x=30, y=159)
+
+    # Option 2
+    self.rb2 = Radiobutton(self.game_frame, text=question_answers[qnum][2], value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb2.place(x=30, y=251)
+
+    # Option 3
+    self.rb3 = Radiobutton(self.game_frame, text=question_answers[qnum][3], value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb3.place(x=30, y=251)
+
+    # Confirm Button
+    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance.place(x=465, y=340)
+
+    # Error Message 
+    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_label.place(x=220, y=350)
+
+    # Different Scenarios
+  def test_program(self):
+    choice = self.var1.get()
+    if choice == 1:
+      self.game_frame.destroy()
+      Scenario1(root)
+    elif choice == 2:
+      self.game_frame.destroy()
+      Scenario1(root)
+    else:
+      self.error_label.config(text = "Please select an option")
+
+
 
 # Start of program
 if __name__ == "__main__":
