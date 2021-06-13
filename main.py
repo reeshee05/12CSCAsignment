@@ -1,12 +1,18 @@
 #Import Tkinker
 from tkinter import *
+import random
 from PIL import ImageTk, Image
 
 # Variables for User
 hp = 0
 att = 0
 xp = 0
+gear = []
 inventory = []
+
+# Variables for Assassin
+ass_hp = 50
+ass_att = 7
 
 # Title Page
 class GameStarter:
@@ -423,22 +429,22 @@ class Scenario5:
     if choice == 1:
       global hp
       global att
-      global inventory
+      global gear
       hp = hp + 120
       att = att + 10
-      inventory.append("Short Sword and Metal Shield")
+      gear.append("Short Sword and Metal Shield")
       self.game_frame.destroy()
       Scenario6(root)
     elif choice == 2:
       hp = hp + 100
       att = att + 20
-      inventory.append("A black hood, leather armour and a few daggers")
+      gear.append("A black hood, leather armour and a few daggers")
       self.game_frame.destroy()
       Scenario6(root)
     elif choice == 3:
       hp = hp + 80
       att = att + 50
-      inventory.append("A book full of arcane spells and incantations")
+      gear.append("A book full of arcane spells and incantations")
       self.game_frame.destroy()
       Scenario6(root)
     else:
@@ -483,13 +489,11 @@ class Scenario6:
     choice = self.var1.get()
     if choice == 1:
       global inventory
-      inventory.append("""
-      Blue Healing Potion""")
+      inventory.append("Blue Healing Potion")
       self.game_frame.destroy()
       Scenario7(root)
     elif choice == 2:
-      inventory.append("""
-      Red Power Potion""")
+      inventory.append("Red Power Potion")
       self.game_frame.destroy()
       Scenario7(root)
     else:
@@ -813,7 +817,7 @@ class Scenario16:
     choice = self.var1.get()
     if choice == 1:
       self.game_frame.destroy()
-      combat1(root)
+      Combat1(root)
     elif choice == 2:
       self.game_frame.destroy()
       Scenario1(root)
@@ -821,7 +825,7 @@ class Scenario16:
       self.error_label.config(text = "Please select an option")
 
 # Combat 1
-class combat1:
+class Combat1:
   def __init__(self, parent):
 
     # Image Background
@@ -850,6 +854,10 @@ class combat1:
     self.attack = Label(self.game_frame, text = att, font=("Skia", "12", "bold"), bg="#666666", fg="white")
     self.attack.place(x=500, y=123)
 
+    # Gear
+    self.gear = Label(self.game_frame, text = gear, font=("Skia", "6", "bold"), bg="#666666", fg="white")
+    self.gear.place(x=298, y=235)
+
     # Inventory
     self.inventory = Label(self.game_frame, text = inventory, font=("Skia", "6", "bold"), bg="#666666", fg="white")
     self.inventory.place(x=298, y=220)
@@ -870,6 +878,10 @@ class combat1:
     self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=465, y=340)
 
+    # Potion Error Message
+    self.error_potion = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
+    self.error_potion.place(x=285, y=345)
+
     # Error Message 
     self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
     self.error_label.place(x=285, y=345)
@@ -878,11 +890,50 @@ class combat1:
   def test_program(self):
     choice = self.var1.get()
     if choice == 1:
-      self.game_frame.destroy()
-      Scenario1(root)
+      if random.randint(0,100) <= 66:
+        global hp
+        global ass_hp
+        global att
+        ass_hp = ass_hp - att
+        if (ass_hp <=0):
+          self.game_frame.destroy()
+          Combat1(root)
+          print(ass_hp)
+        elif (ass_hp >=1):
+          hp = hp - ass_att
+          self.game_frame.destroy()
+          Combat1(root)
+      else:
+        hp = hp - ass_att
+        self.game_frame.destroy()
+        Combat1(root)
+        print(ass_hp)
     elif choice == 2:
-      self.game_frame.destroy()
-      Scenario1(root)
+      if random.randint(0,100) <= 66:
+        self.game_frame.destroy()
+        Combat1(root)
+      else:
+        hp = hp - ass_att
+        if (hp <=0):
+          self.game_frame.destroy()
+          Scenario1(root)
+        else:
+          self.game_frame.destroy()
+          Scenario1(root)
+    elif choice == 3:
+      global inventory
+      if "Red Power Potion" in inventory:
+        att = att + 100
+        inventory.remove("Red Power Potion")
+        self.game_frame.destroy()
+        Combat1(root)
+      elif "Blue Healing Potion" in inventory:
+        hp = hp + 100
+        inventory.remove("Blue Healing Potion")
+        self.game_frame.destroy()
+        Combat1(root)
+      elif "Red Power Potion" or "Blue Healing Potion" not in inventory:
+        self.error_potion.config(text = "You already used this")
     else:
       self.error_label.config(text = "Please select an option")
 
