@@ -647,10 +647,6 @@ class Scenario9:
     self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=465, y=340)
 
-    # You gained XP
-    self.experience = Label(self.game_frame, text="You Gained XP", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=240, y=350)
-
     # Error Message 
     self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
     self.error_label.place(x=220, y=350)
@@ -794,13 +790,9 @@ class Scenario15:
     self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=465, y=340)
 
-    # Achievment Unlocked
-    self.experience = Label(self.game_frame, text="Achievement Unlocked! You Love Politics", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=130, y=325)
-
     # Error Message 
     self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label.place(x=220, y=335)
 
     # Different Scenarios
   def test_program(self):
@@ -1041,15 +1033,19 @@ class Combat1:
 
     # HP
     self.hp = Label(self.game_frame, text = hp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.hp.place(x=122, y=123)
-
-    # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.xp.place(x=315, y=123)
+    self.hp.place(x=110, y=123)
 
     # Attack
     self.attack = Label(self.game_frame, text = att, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.attack.place(x=500, y=123)
+    self.attack.place(x=250, y=123)
+
+    # XP
+    self.xp = Label(self.game_frame, text = xp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
+    self.xp.place(x=385, y=123)
+
+    # Enemy HP
+    self.enemy_hp = Label(self.game_frame, text = ass_hp, font=("Skia", "12", "bold"), bg="#666666", fg="red4")
+    self.enemy_hp.place(x=490, y=136)
 
     # Gear
     self.gear = Label(self.game_frame, text = gear, font=("Skia", "6", "bold"), bg="#666666", fg="white")
@@ -1546,13 +1542,9 @@ class Scenario24:
     self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=465, y=340)
 
-    # Achievment Unlocked
-    self.experience = Label(self.game_frame, text="Achievement Unlocked! IQ 1000 Mega Super Big Brain", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=110, y=325)
-
     # Error Message 
     self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label.place(x=220, y=335)
 
     # Different Scenarios
   def test_program(self):
@@ -1832,10 +1824,6 @@ class Scenario30:
     self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=465, y=340)
 
-    # Achievment Unlocked
-    self.experience = Label(self.game_frame, text="Achievement Unlocked! Someone has Daddy Issues", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=110, y=325)
-
     # Error Message 
     self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
     self.error_label.place(x=220, y=350)
@@ -2033,15 +2021,19 @@ class Combat2:
 
     # HP
     self.hp = Label(self.game_frame, text = hp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.hp.place(x=122, y=123)
-
-    # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.xp.place(x=315, y=123)
+    self.hp.place(x=110, y=123)
 
     # Attack
     self.attack = Label(self.game_frame, text = att, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.attack.place(x=500, y=123)
+    self.attack.place(x=250, y=123)
+
+    # XP
+    self.xp = Label(self.game_frame, text = xp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
+    self.xp.place(x=385, y=123)
+
+    # Enemy HP
+    self.enemy_hp = Label(self.game_frame, text = ass_hp, font=("Skia", "12", "bold"), bg="#666666", fg="red4")
+    self.enemy_hp.place(x=490, y=136)
 
     # Gear
     self.gear = Label(self.game_frame, text = gear, font=("Skia", "6", "bold"), bg="#666666", fg="white")
@@ -2331,10 +2323,6 @@ class Good_End:
     self.xp = Label(self.game_frame, text = xp, font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="8")
     self.xp.place(x=395, y=250)
 
-    # Achievment Unlocked
-    self.experience = Label(self.game_frame, text="Achievement Unlocked! You Finished the Game", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=130, y=325)
-
     # Exit Button
     self.game_instance = Button(self.game_frame, text="Exit", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
     self.game_instance.place(x=500, y=340)
@@ -2406,10 +2394,6 @@ class Bad_End2:
     # XP
     self.xp = Label(self.game_frame, text = xp, font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="8")
     self.xp.place(x=395, y=250)
-
-    # Achievment Unlocked
-    self.experience = Label(self.game_frame, text="Achievement Unlocked! You're a Dictator Now", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=130, y=325)
 
     # Exit Button
     self.game_instance = Button(self.game_frame, text="Exit", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
