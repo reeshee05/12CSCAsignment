@@ -36,35 +36,36 @@ class GameStarter:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     # Entry box
     self.entry_box = Entry(self.game_frame)
-    self.entry_box.place(x=160, y=300)
+    self.entry_box.place(x = 160, y = 300)
 
     # Button
-    self.continue_button = Button(self.game_frame, text="Enter", bg="grey70", font=("Skia"), command=self.name_collection)
-    self.continue_button.place(x=370, y=295)
+    self.continue_button = Button(self.game_frame, text = "Enter", bg = "grey70", font = ("Skia"), command = self.name_collection)
+    self.continue_button.place(x = 370, y = 295)
 
     # Key Press
     def key_pressed(event):
-      if event.keycode==36:
+      if event.keycode == 36:
         self.name_collection()
 
     self.entry_box.bind("<Key>",key_pressed)
 
     # Error Message (Boundary testing)
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=67, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 67, y = 350)
 
   # Name Collection
   def name_collection(self):
     name = self.entry_box.get()
-    if len(name) <=20 and len(name) >=3:
+    if len(name) <= 20 and len(name) >= 3:
       names.append(name)
       self.game_frame.destroy()
       Scenario1(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please enter a name which has a min of 3 letters and max of 20 letters.")
 
 
@@ -82,29 +83,29 @@ class Scenario1:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", width=3, indicator=0, variable=self.var1)
-    self.rb1.place(x=30, y=133)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 133)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=198)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 198)
 
     # Option 3
-    self.rb3 = Radiobutton(self.game_frame, value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb3.place(x=30, y=264)
+    self.rb3 = Radiobutton(self.game_frame, value = 3, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb3.place(x = 30, y = 264)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message (Boundary testing)
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
   # Different Scenarios
   def test_program(self):
@@ -118,8 +119,8 @@ class Scenario1:
     elif choice == 3:
       self.game_frame.destroy()
       Scenario4(root)
-    # Boundary testing
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -137,25 +138,25 @@ class Scenario2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
   
     # Different Scenarios
   def test_program(self):
@@ -167,6 +168,7 @@ class Scenario2:
       self.game_frame.destroy()
       Scenario10(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -184,25 +186,25 @@ class Scenario3:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
-    # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    # Error Message
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
       
     # Different Scenarios
   def test_program(self):
@@ -214,6 +216,7 @@ class Scenario3:
       self.game_frame.destroy()
       Scenario10(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -231,25 +234,25 @@ class Scenario4:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
       
     # Different Scenarios
   def test_program(self):
@@ -261,6 +264,7 @@ class Scenario4:
       self.game_frame.destroy()
       Scenario10(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -278,25 +282,25 @@ class Scenario10:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
       
     # Different Scenarios
   def test_program(self):
@@ -308,6 +312,7 @@ class Scenario10:
       self.game_frame.destroy()
       Scenario12(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -325,25 +330,25 @@ class Scenario11:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
       
     # Different Scenarios
   def test_program(self):
@@ -355,6 +360,7 @@ class Scenario11:
       self.game_frame.destroy()
       Scenario5(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -372,25 +378,25 @@ class Scenario12:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
       
     # Different Scenarios
   def test_program(self):
@@ -402,6 +408,7 @@ class Scenario12:
       self.game_frame.destroy()
       Scenario5(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -419,55 +426,56 @@ class Scenario5:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=133)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 133)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=198)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 198)
 
     # Option 3
-    self.rb3 = Radiobutton(self.game_frame, value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb3.place(x=30, y=264)
+    self.rb3 = Radiobutton(self.game_frame, value = 3, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb3.place(x = 30, y = 264)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
   # Class Buffs
   def test_program(self):
     choice = self.var1.get()
-    if choice == 1:
+    if choice == 1: # User chooses sword and shield
       global hp
       global att
       global gear
       hp = hp + 120
-      att = att + 10
+      att = att + 30
       gear.append("Short Sword and Metal Shield")
       self.game_frame.destroy()
       Scenario6(root)
-    elif choice == 2:
-      hp = hp + 100
-      att = att + 20
+    elif choice == 2: # User chooses black hood, leather armour and daggers
+      hp = hp + 80
+      att = att + 40
       gear.append("A black hood, leather armour and a few daggers")
       self.game_frame.destroy()
       Scenario6(root)
-    elif choice == 3:
-      hp = hp + 80
-      att = att + 50
+    elif choice == 3: # User chooses spells 
+      hp = hp + 60
+      att = att + 60
       gear.append("A book full of arcane spells and incantations")
       self.game_frame.destroy()
       Scenario6(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -485,39 +493,40 @@ class Scenario6:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
     self.game_instance.place(x=465, y=340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
       
   # Potion Selection
   def test_program(self):
     choice = self.var1.get()
-    if choice == 1:
+    if choice == 1: # User chooses Healing Potion
       global inventory
-      inventory.append("Blue Healing Potion")
+      inventory.append("Red Healing Potion")
       self.game_frame.destroy()
       Scenario7(root)
-    elif choice == 2:
-      inventory.append("Red Power Potion")
+    elif choice == 2: # User chooses Power Potion
+      inventory.append("Blue Power Potion")
       self.game_frame.destroy()
       Scenario7(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -535,25 +544,25 @@ class Scenario7:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -565,6 +574,7 @@ class Scenario7:
       self.game_frame.destroy()
       Scenario8(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -582,25 +592,25 @@ class Scenario8:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -614,6 +624,7 @@ class Scenario8:
       self.game_frame.destroy()
       Scenario13(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -631,25 +642,25 @@ class Scenario9:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -661,6 +672,7 @@ class Scenario9:
       self.game_frame.destroy()
       Scenario16(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -678,25 +690,25 @@ class Scenario13:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -710,6 +722,7 @@ class Scenario13:
       self.game_frame.destroy()
       Scenario16(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -727,36 +740,39 @@ class Scenario14:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
     if choice == 1:
+      global xp
+      xp = xp + 999
       self.game_frame.destroy()
       Scenario15(root)
     elif choice == 2:
       self.game_frame.destroy()
       Scenario16(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -774,25 +790,25 @@ class Scenario15:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=335)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 335)
 
     # Different Scenarios
   def test_program(self):
@@ -804,6 +820,7 @@ class Scenario15:
       self.game_frame.destroy()
       Scenario16(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 # Assasination
@@ -820,25 +837,25 @@ class Scenario16:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -850,11 +867,12 @@ class Scenario16:
       self.game_frame.destroy()
       Scenario18(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
-# Attack hit and win
-class a_win:
+# Attack hits and user wins
+class AWin:
   def __init__(self, parent):
 
     # Image Background
@@ -867,26 +885,26 @@ class a_win:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # You gained XP
-    self.experience = Label(self.game_frame, text="You Gained XP", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=255, y=365)
+    self.experience = Label(self.game_frame, text = "You Gained XP", font = ("Skia", "10"), bg = "#272727", fg = "pale green")
+    self.experience.place(x = 255, y = 365)
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Goes back to Combat1
   def test_program(self):
-      self.game_frame.destroy()
-      Scenario17(root)
+    self.game_frame.destroy()
+    Scenario17(root)
 
 
-# Attack But Still Alive
-class a_on:
+# Attack hit but Enemy Still Alive
+class AOn:
   def __init__(self, parent):
 
     # Image Background
@@ -899,26 +917,26 @@ class a_on:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # You gained XP
-    self.experience = Label(self.game_frame, text="You Gained XP", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=255, y=365)
+    self.experience = Label(self.game_frame, text = "You Gained XP", font = ("Skia", "10"), bg = "#272727", fg = "pale green")
+    self.experience.place(x = 255, y = 365)
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Goes back to Combat1
   def test_program(self):
-      self.game_frame.destroy()
-      Combat1(root)
+    self.game_frame.destroy()
+    Combat1(root)
 
 
 # Attack Miss
-class a_loss:
+class ALoss:
   def __init__(self, parent):
 
     # Image Background
@@ -931,15 +949,15 @@ class a_loss:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Different Scenarios
   def test_program(self):
     if (hp <= 0):
       self.game_frame.destroy()
@@ -949,8 +967,8 @@ class a_loss:
       Combat1(root)
 
 
-# Defence Win
-class d_on:
+# Defence Successful
+class DOn:
   def __init__(self, parent):
 
     # Image Background
@@ -963,26 +981,26 @@ class d_on:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # You gained XP
-    self.experience = Label(self.game_frame, text="You Gained XP", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=255, y=365)
+    self.experience = Label(self.game_frame, text = "You Gained XP", font = ("Skia", "10"), bg = "#272727", fg = "pale green")
+    self.experience.place(x = 255, y = 365)
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+    # Goes back to Combat1
   def test_program(self):
       self.game_frame.destroy()
       Combat1(root)
 
 
-# Defence Loss
-class d_loss:
+# Defence Failure
+class DLoss:
   def __init__(self, parent):
 
     # Image Background
@@ -995,13 +1013,13 @@ class d_loss:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
     # Different Scenarios
   def test_program(self):
@@ -1032,57 +1050,57 @@ class Combat1:
     self.var1 = IntVar()
 
     # HP
-    self.hp = Label(self.game_frame, text = hp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.hp.place(x=110, y=123)
+    self.hp = Label(self.game_frame, text = hp, font = ("Skia", "12", "bold"), bg = "#666666", fg = "white")
+    self.hp.place(x = 110, y = 123)
 
     # Attack
-    self.attack = Label(self.game_frame, text = att, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.attack.place(x=250, y=123)
+    self.attack = Label(self.game_frame, text = att, font = ("Skia", "12", "bold"), bg = "#666666", fg = "white")
+    self.attack.place(x = 250, y = 123)
 
     # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.xp.place(x=385, y=123)
+    self.xp = Label(self.game_frame, text = xp, font = ("Skia", "12", "bold"), bg = "#666666", fg = "white")
+    self.xp.place(x = 370, y = 123)
 
     # Enemy HP
-    self.enemy_hp = Label(self.game_frame, text = ass_hp, font=("Skia", "12", "bold"), bg="#666666", fg="red4")
-    self.enemy_hp.place(x=490, y=136)
+    self.enemy_hp = Label(self.game_frame, text = ass_hp, font = ("Skia", "12", "bold"), bg = "#666666", fg = "red4")
+    self.enemy_hp.place(x = 490, y = 136)
 
     # Gear
-    self.gear = Label(self.game_frame, text = gear, font=("Skia", "6", "bold"), bg="#666666", fg="white")
-    self.gear.place(x=298, y=235)
+    self.gear = Label(self.game_frame, text = gear, font = ("Skia", "6", "bold"), bg = "#666666", fg = "white")
+    self.gear.place(x = 298, y = 235)
 
     # Inventory
-    self.inventory = Label(self.game_frame, text = inventory, font=("Skia", "6", "bold"), bg="#666666", fg="white")
-    self.inventory.place(x=298, y=220)
+    self.inventory = Label(self.game_frame, text = inventory, font = ("Skia", "6", "bold"), bg = "#666666", fg = "white")
+    self.inventory.place(x = 298, y = 220)
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=182)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 182)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=252)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 252)
 
     # Option 2
-    self.rb3 = Radiobutton(self.game_frame, value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb3.place(x=30, y=322)
+    self.rb3 = Radiobutton(self.game_frame, value = 3, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb3.place(x = 30, y = 322)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Potion Error Message
-    self.error_potion = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_potion.place(x=285, y=345)
+    self.error_potion = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_potion.place(x = 285, y = 345)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=285, y=345)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 285, y = 345)
 
-    # Different Scenarios / Calculations
+  # Different Scenarios / Calculations
   def test_program(self):
     choice = self.var1.get()
-    if choice == 1:
+    if choice == 1: # Attack the Enemy
       if random.randint(0,100) <= 80:
         global hp
         global xp
@@ -1092,43 +1110,40 @@ class Combat1:
         if (ass_hp <=0):
           xp = xp + 999
           self.game_frame.destroy()
-          a_win(root)
+          AWin(root) # Attack hits and kills Enemy
         elif (ass_hp >=1):
           xp = xp + 499
           self.game_frame.destroy()
-          a_on(root)
+          AOn(root) # Attack hits but the Enemy is still alive
       else:
         hp = hp - ass_att
         self.game_frame.destroy()
-        a_loss(root)
-    elif choice == 2:
+        ALoss(root) # Attack misses
+    elif choice == 2: # Defend agaisnt the Enemy
       if random.randint(0,100) <= 66:
         xp = xp + 1999
         self.game_frame.destroy()
-        d_on(root)
+        DOn(root) # Successfully defends against the Enemy
       else:
         hp = hp - ass_att
-        if (hp >=1):
-          self.game_frame.destroy()
-          d_loss(root)
-        else:
-          self.game_frame.destroy()
-          Scenario1(root)
-    elif choice == 3:
+        self.game_frame.destroy()
+        DLoss(root) # Fails to defend against the Enemy
+    elif choice == 3: # Use a potion
       global inventory
-      if "Red Power Potion" in inventory:
-        att = att + 75
-        inventory.remove("Red Power Potion")
+      if "Blue Power Potion" in inventory: # Increases Att
+        att = att + 50
+        inventory.remove("Blue Power Potion")
         self.game_frame.destroy()
         Combat1(root)
-      elif "Blue Healing Potion" in inventory:
-        hp = hp + 200
-        inventory.remove("Blue Healing Potion")
+      elif "Red Healing Potion" in inventory: # Increases HP
+        hp = hp + 100
+        inventory.remove("Red Healing Potion")
         self.game_frame.destroy()
         Combat1(root)
-      elif "Red Power Potion" or "Blue Healing Potion" not in inventory:
+      elif "Blue Power Potion" or "Red Healing Potion" not in inventory:
         self.error_potion.config(text = "You already used this")
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -1146,25 +1161,25 @@ class Scenario17:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -1176,6 +1191,7 @@ class Scenario17:
       self.game_frame.destroy()
       Scenario25(root)
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
 
 
@@ -1193,25 +1209,25 @@ class Scenario18:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -1222,11 +1238,12 @@ class Scenario18:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario25(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
 
-# (TFA) Response 1
+# (TGF) Response 1
 class Scenario19:
   def __init__(self, parent):
 
@@ -1240,25 +1257,25 @@ class Scenario19:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -1269,6 +1286,7 @@ class Scenario19:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario25(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1287,25 +1305,25 @@ class Scenario20:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -1316,6 +1334,7 @@ class Scenario20:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario21(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1334,47 +1353,47 @@ class Scenario21:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", width=3, indicator=0, variable=self.var1)
-    self.rb1.place(x=30, y=133)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 133)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=198)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 198)
 
     # Option 3
-    self.rb3 = Radiobutton(self.game_frame, value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb3.place(x=30, y=264)
+    self.rb3 = Radiobutton(self.game_frame, value = 3, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb3.place(x = 30, y = 264)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
-    # Error Message (Boundary testing)
+    # Error Message
     self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label.place(x = 220, y = 350)
 
   # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
-    if choice == 1:
+    if choice == 1: # User gets answer right
       self.game_frame.destroy()
       Scenario22(root)
-    elif choice == 2:
+    elif choice == 2: # User gets answer wrong
       global tries
       tries = tries - 1
       self.game_frame.destroy()
       Scenario22(root)
-    elif choice == 3:
+    elif choice == 3: # User gets answer wrong
       tries = tries - 1      
       self.game_frame.destroy()
       Scenario22(root)
-    # Boundary testing
     else:
+      # Error Message
       self.error_label.config(text = "Please select an option")
   
 
@@ -1392,54 +1411,54 @@ class Scenario22:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", width=3, indicator=0, variable=self.var1)
-    self.rb1.place(x=30, y=133)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 133)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
     self.rb2.place(x=30, y=198)
 
     # Option 3
-    self.rb3 = Radiobutton(self.game_frame, value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb3.place(x=30, y=264)
+    self.rb3 = Radiobutton(self.game_frame, value = 3, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb3.place(x = 30, y = 264)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message (Boundary testing)
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
   # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
-    if choice == 1:
+    if choice == 1: # User gets answers wrong
       global tries
       tries = tries - 1
-      if (tries <=0):
+      if (tries <= 0):
         self.game_frame.destroy()
-        Death(root)
+        Death(root) 
       else:
         self.game_frame.destroy()
         Scenario23(root)
-    elif choice == 2:
+    elif choice == 2: # User gets answers wrong
       tries = tries - 1
-      if (tries <=0):
+      if (tries <= 0):
         self.game_frame.destroy()
         Death(root)
       else:
         self.game_frame.destroy()
         Scenario23(root)
-    elif choice == 3:
+    elif choice == 3: # User gets answers right
       self.game_frame.destroy()
       Scenario23(root)
-    # Boundary testing
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1458,55 +1477,55 @@ class Scenario23:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", width=3, indicator=0, variable=self.var1)
-    self.rb1.place(x=30, y=133)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 133)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=198)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 198)
 
     # Option 3
-    self.rb3 = Radiobutton(self.game_frame, value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb3.place(x=30, y=264)
+    self.rb3 = Radiobutton(self.game_frame, value = 3, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb3.place(x = 30, y = 264)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
   # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
-    if choice == 1:
+    if choice == 1: # User gets answers wrong
       global tries
       tries = tries - 1
-      if (tries <=0):
+      if (tries <= 0):
         self.game_frame.destroy()
         Death(root)
       else:
         global xp
-        xp = xp + 199
+        xp = xp + 1999
         self.game_frame.destroy()
         Scenario24(root)
-    elif choice == 2:
-      xp = xp + 199
+    elif choice == 2: # User gets answers right
+      xp = xp + 1999
       self.game_frame.destroy()
       Scenario24(root)
-    elif choice == 3:
+    elif choice == 3: # User gets answers wrong
       tries = tries - 1
-      if (tries <=0):
+      if (tries <= 0):
         self.game_frame.destroy()
         Death(root)
       else:
-        xp = xp + 199
+        xp = xp + 1999
         self.game_frame.destroy()
         Scenario24(root)
     else:
@@ -1526,25 +1545,25 @@ class Scenario24:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=335)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 335)
 
     # Different Scenarios
   def test_program(self):
@@ -1555,6 +1574,7 @@ class Scenario24:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario25(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1573,25 +1593,25 @@ class Scenario25:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -1602,6 +1622,7 @@ class Scenario25:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario26(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1620,25 +1641,25 @@ class Scenario26:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
     self.rb1.place(x=30, y=159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -1649,6 +1670,7 @@ class Scenario26:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario28(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1667,27 +1689,27 @@ class Scenario27:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
-    # Different Scenarios
+  # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
     if choice == 1:
@@ -1696,6 +1718,7 @@ class Scenario27:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario29(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1714,25 +1737,25 @@ class Scenario28:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -1743,6 +1766,7 @@ class Scenario28:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario29(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1761,35 +1785,38 @@ class Scenario29:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
     if choice == 1:
       self.game_frame.destroy()
-      Bad_End1(root)
+      BadEnd1(root)
     elif choice == 2:
       self.game_frame.destroy()
+      global xp
+      xp = xp + 999
       Scenario30(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -1808,25 +1835,25 @@ class Scenario30:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 335)
 
     # Different Scenarios
   def test_program(self):
@@ -1837,12 +1864,13 @@ class Scenario30:
     elif choice == 2:
       self.game_frame.destroy()
       Combat2(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
 
 # Attack Hits and Win
-class a_win2:
+class AWin2:
   def __init__(self, parent):
 
     # Image Background
@@ -1855,26 +1883,26 @@ class a_win2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # You gained XP
-    self.experience = Label(self.game_frame, text="You Gained XP", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=255, y=365)
+    self.experience = Label(self.game_frame, text = "You Gained XP", font = ("Skia", "10"), bg = "#272727", fg = "pale green")
+    self.experience.place(x = 255, y = 365)
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Return to Combat 2
   def test_program(self):
-      self.game_frame.destroy()
-      Scenario31(root)
+    self.game_frame.destroy()
+    Combat2(root)
 
 
 # Attack But Still Alive
-class a_on2:
+class AOn2:
   def __init__(self, parent):
 
     # Image Background
@@ -1887,26 +1915,26 @@ class a_on2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # You gained XP
-    self.experience = Label(self.game_frame, text="You Gained XP", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=255, y=365)
+    self.experience = Label(self.game_frame, text = "You Gained XP", font = ("Skia", "10"), bg = "#272727", fg = "pale green")
+    self.experience.place(x = 255, y = 365)
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Return to Combat 2
   def test_program(self):
-      self.game_frame.destroy()
-      Combat2(root)
+    self.game_frame.destroy()
+    Combat2(root)
 
 
 # Attack Miss
-class a_loss2:
+class ALoss2:
   def __init__(self, parent):
 
     # Image Background
@@ -1919,15 +1947,15 @@ class a_loss2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Different Scenarios
   def test_program(self):
     if (hp <= 0):
       self.game_frame.destroy()
@@ -1938,7 +1966,7 @@ class a_loss2:
 
 
 # Defence Win
-class d_on2:
+class DOn2:
   def __init__(self, parent):
 
     # Image Background
@@ -1951,26 +1979,26 @@ class d_on2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # You gained XP
-    self.experience = Label(self.game_frame, text="You Gained XP", font=("Skia", "10"), bg="#272727", fg="pale green")
-    self.experience.place(x=255, y=365)
+    self.experience = Label(self.game_frame, text = "You Gained XP", font = ("Skia", "10"), bg = "#272727", fg = "pale green")
+    self.experience.place(x = 255, y = 365)
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Different Scenarios
   def test_program(self):
-      self.game_frame.destroy()
-      Combat2(root)
+    self.game_frame.destroy()
+    Combat2(root)
 
 
 # Defence Loss
-class d_loss2:
+class DLoss2:
   def __init__(self, parent):
 
     # Image Background
@@ -1983,15 +2011,15 @@ class d_loss2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Continue Button
-    self.game_instance = Button(self.game_frame, text="Continue", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=250, y=320)
+    self.game_instance = Button(self.game_frame, text = "Continue", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 250, y = 320)
 
-    # Different Scenarios
+  # Different Scenarios
   def test_program(self):
     if (hp <= 0):
       self.game_frame.destroy()
@@ -2015,62 +2043,62 @@ class Combat2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # HP
-    self.hp = Label(self.game_frame, text = hp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.hp.place(x=110, y=123)
+    self.hp = Label(self.game_frame, text = hp, font = ("Skia", "12", "bold"), bg = "#666666", fg = "white")
+    self.hp.place(x = 110, y = 123)
 
     # Attack
-    self.attack = Label(self.game_frame, text = att, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.attack.place(x=250, y=123)
+    self.attack = Label(self.game_frame, text = att, font = ("Skia", "12", "bold"), bg = "#666666", fg = "white")
+    self.attack.place(x = 250, y = 123)
 
     # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "12", "bold"), bg="#666666", fg="white")
-    self.xp.place(x=385, y=123)
+    self.xp = Label(self.game_frame, text = xp, font = ("Skia", "12", "bold"), bg = "#666666", fg = "white")
+    self.xp.place(x = 370, y = 123)
 
     # Enemy HP
-    self.enemy_hp = Label(self.game_frame, text = ass_hp, font=("Skia", "12", "bold"), bg="#666666", fg="red4")
-    self.enemy_hp.place(x=490, y=136)
+    self.enemy_hp = Label(self.game_frame, text = b_hp, font = ("Skia", "12", "bold"), bg = "#666666", fg = "red4")
+    self.enemy_hp.place(x = 490, y = 136)
 
     # Gear
-    self.gear = Label(self.game_frame, text = gear, font=("Skia", "6", "bold"), bg="#666666", fg="white")
-    self.gear.place(x=298, y=235)
+    self.gear = Label(self.game_frame, text = gear, font = ("Skia", "6", "bold"), bg = "#666666", fg = "white")
+    self.gear.place(x = 298, y = 235)
 
     # Inventory
-    self.inventory = Label(self.game_frame, text = inventory, font=("Skia", "6", "bold"), bg="#666666", fg="white")
-    self.inventory.place(x=298, y=220)
+    self.inventory = Label(self.game_frame, text = inventory, font = ("Skia", "6", "bold"), bg = "#666666", fg = "white")
+    self.inventory.place(x = 298, y = 220)
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=182)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 182)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=252)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 252)
 
     # Option 2
-    self.rb3 = Radiobutton(self.game_frame, value=3, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb3.place(x=30, y=322)
+    self.rb3 = Radiobutton(self.game_frame, value = 3, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb3.place(x = 30, y = 322)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Potion Error Message
-    self.error_potion = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_potion.place(x=285, y=345)
+    self.error_potion = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_potion.place(x = 285, y = 345)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=285, y=345)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 285, y = 345)
 
     # Different Scenarios / Calculations
   def test_program(self):
     choice = self.var1.get()
-    if choice == 1:
+    if choice == 1: # Attack Enemy
       if random.randint(0,100) <= 65:
         global hp
         global xp
@@ -2078,45 +2106,42 @@ class Combat2:
         global b_hp
         global b_att
         b_hp = b_hp - att
-        if (b_hp <=0):
+        if (b_hp <= 0):
           xp = xp + 1999
           self.game_frame.destroy()
-          a_win2(root)
-        elif (b_hp >=1):
+          AWin2(root) # Attack kills enemy
+        elif (b_hp >= 1):
           xp = xp + 999
           self.game_frame.destroy()
-          a_on2(root)
+          AOn2(root) # Attack successfully hits enemy 
       else:
         hp = hp - b_att
         self.game_frame.destroy()
-        a_loss2(root)
-    elif choice == 2:
+        ALoss2(root) # Attack misses enemy
+    elif choice == 2: # Defend against enemy
       if random.randint(0,100) <= 55:
         xp = xp + 2999
         self.game_frame.destroy()
-        d_on2(root)
+        DOn2(root) # Successfully Defends against enemy
       else:
         hp = hp - b_att
-        if (hp >=1):
-          self.game_frame.destroy()
-          d_loss2(root)
-        else:
-          self.game_frame.destroy()
-          Scenario1(root)
-    elif choice == 3:
+        self.game_frame.destroy()
+        DLoss2(root) # Fails to defend agaisnt enemy
+    elif choice == 3: # Use Potions
       global inventory
-      if "Red Power Potion" in inventory:
-        att = att + 75
-        inventory.remove("Red Power Potion")
+      if "Blue Power Potion" in inventory: # Increase att
+        att = att + 50
+        inventory.remove("Blue Power Potion")
         self.game_frame.destroy()
         Combat2(root)
-      elif "Blue Healing Potion" in inventory:
-        hp = hp + 200
-        inventory.remove("Blue Healing Potion")
+      elif "Red Healing Potion" in inventory: # Increase HP
+        hp = hp + 100
+        inventory.remove("Red Healing Potion")
         self.game_frame.destroy()
         Combat2(root)
-      elif "Red Power Potion" or "Blue Healing Potion" not in inventory:
+      elif "Blue Power Potion" or "Red Healing Potion" not in inventory:
         self.error_potion.config(text = "You already used this")
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -2134,25 +2159,25 @@ class Scenario31:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
@@ -2163,6 +2188,7 @@ class Scenario31:
     elif choice == 2:
       self.game_frame.destroy()
       Scenario33(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -2181,35 +2207,36 @@ class Scenario32:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
     if choice == 1:
       self.game_frame.destroy()
-      Good_End(root)
+      GoodEnd(root)
     elif choice == 2:
       self.game_frame.destroy()
-      Good_End(root)
+      GoodEnd(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -2228,35 +2255,36 @@ class Scenario33:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Option 1
-    self.rb1 = Radiobutton(self.game_frame, value=1, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb1.place(x=30, y=159)
+    self.rb1 = Radiobutton(self.game_frame, value = 1, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb1.place(x = 30, y = 159)
 
     # Option 2
-    self.rb2 = Radiobutton(self.game_frame, value=2, padx=14, pady=18, bg="grey50", variable=self.var1)
-    self.rb2.place(x=30, y=251)
+    self.rb2 = Radiobutton(self.game_frame, value = 2, padx = 14, pady = 18, bg = "grey50", variable = self.var1)
+    self.rb2.place(x = 30, y = 251)
 
     # Confirm Button
-    self.game_instance = Button(self.game_frame, text="Confirm", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=465, y=340)
+    self.game_instance = Button(self.game_frame, text = "Confirm", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 465, y = 340)
 
     # Error Message 
-    self.error_label = Label(self.game_frame, font=("Skia", "10"), bg="#272727", fg="red")
-    self.error_label.place(x=220, y=350)
+    self.error_label = Label(self.game_frame, font = ("Skia", "10"), bg = "#272727", fg = "red")
+    self.error_label.place(x = 220, y = 350)
 
     # Different Scenarios
   def test_program(self):
     choice = self.var1.get()
     if choice == 1:
       self.game_frame.destroy()
-      Bad_End2(root)
+      BadEnd2(root)
     elif choice == 2:
       self.game_frame.destroy()
-      Good_End(root)
+      GoodEnd(root)
+    # Error Message
     else:
       self.error_label.config(text = "Please select an option")
 
@@ -2275,30 +2303,30 @@ class Death:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # XP Readings
-    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="13")
-    self.xp_readings.place(x=115, y=250)
+    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "13")
+    self.xp_readings.place(x = 115, y = 250)
 
     # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="8")
-    self.xp.place(x=395, y=250)
+    self.xp = Label(self.game_frame, text = xp, font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "8")
+    self.xp.place(x = 395, y = 250)
 
     # Exit Button
-    self.game_instance = Button(self.game_frame, text="Exit", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=500, y=340)
+    self.game_instance = Button(self.game_frame, text = "Exit", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 500, y = 340)
 
-    # End Credits
+  # End Program
   def test_program(self):
     self.game_frame.destroy()
     root.destroy()
 
 
 # Good Ending
-class Good_End:
+class GoodEnd:
   def __init__(self, parent):
 
     # Image Background
@@ -2311,30 +2339,30 @@ class Good_End:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # XP Readings
-    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="13")
-    self.xp_readings.place(x=115, y=250)
+    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "13")
+    self.xp_readings.place(x = 115, y = 250)
 
     # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="8")
-    self.xp.place(x=395, y=250)
+    self.xp = Label(self.game_frame, text = xp, font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "8")
+    self.xp.place(x = 395, y = 250)
 
     # Exit Button
-    self.game_instance = Button(self.game_frame, text="Exit", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=500, y=340)
+    self.game_instance = Button(self.game_frame, text = "Exit", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 500, y = 340)
 
-    # End Program
+  # End Credits
   def test_program(self):
     self.game_frame.destroy()
-    End_Credits(root)
+    EndCredits(root)
 
 
 # Bad Ending 1
-class Bad_End1:
+class BadEnd1:
   def __init__(self, parent):
 
     # Image Background
@@ -2347,30 +2375,30 @@ class Bad_End1:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # XP Readings
-    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="13")
-    self.xp_readings.place(x=115, y=250)
+    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "13")
+    self.xp_readings.place(x = 115, y = 250)
 
     # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="8")
-    self.xp.place(x=395, y=250)
+    self.xp = Label(self.game_frame, text = xp, font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "8")
+    self.xp.place(x = 395, y = 250)
 
     # Exit Button
-    self.game_instance = Button(self.game_frame, text="Exit", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=500, y=340)
+    self.game_instance = Button(self.game_frame, text = "Exit", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 500, y = 340)
 
   # End Credits
   def test_program(self):
     self.game_frame.destroy()
-    End_Credits(root)
+    EndCredits(root)
 
 
 # Bad Ending 2
-class Bad_End2:
+class BadEnd2:
   def __init__(self, parent):
 
     # Image Background
@@ -2383,30 +2411,30 @@ class Bad_End2:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # XP Readings
-    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="13")
-    self.xp_readings.place(x=115, y=250)
+    self.xp_readings = Label(self.game_frame, text = "Your final XP is", font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "13")
+    self.xp_readings.place(x = 115, y = 250)
 
     # XP
-    self.xp = Label(self.game_frame, text = xp, font=("Skia", "20", "bold"), bg="#666666", fg="pale green", width="8")
-    self.xp.place(x=395, y=250)
+    self.xp = Label(self.game_frame, text = xp, font = ("Skia", "20", "bold"), bg = "#666666", fg = "pale green", width = "8")
+    self.xp.place(x = 395, y = 250)
 
     # Exit Button
-    self.game_instance = Button(self.game_frame, text="Exit", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=500, y=340)
+    self.game_instance = Button(self.game_frame, text = "Exit", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 500, y = 340)
 
   # End Credits
   def test_program(self):
     self.game_frame.destroy()
-    End_Credits(root)
+    EndCredits(root)
 
 
 # End Credits
-class End_Credits:
+class EndCredits:
   def __init__(self, parent):
 
     # Image Background
@@ -2419,15 +2447,15 @@ class End_Credits:
 
     # Background Image Location
     self.image_label = Label(self.game_frame, image = self.bg_image)
-    self.image_label.grid(row=1)
+    self.image_label.grid(row = 1)
 
     self.var1 = IntVar()
 
     # Exit Button
-    self.game_instance = Button(self.game_frame, text="Exit", font=("Skia", "12", "bold"), bg="grey70", fg="white", command=self.test_program)
-    self.game_instance.place(x=100, y=252)
+    self.game_instance = Button(self.game_frame, text = "Exit", font = ("Skia", "12", "bold"), bg = "grey70", fg = "white", command = self.test_program)
+    self.game_instance.place(x = 100, y = 252)
 
-    # Different Scenarios
+  # End Program
   def test_program(self):
     self.game_frame.destroy()
     root.destroy()
