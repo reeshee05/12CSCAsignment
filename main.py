@@ -5,20 +5,20 @@ from PIL import ImageTk, Image
 
 # Variables for User
 names = []
-hp = 0
-att = 0
-xp = 0
-tries = 2
-gear = []
-inventory = []
+hp = 0 # User Health Points
+att = 0 # User Attack Value
+xp = 0 # Use Experience Points
+tries = 2 # User lives for Interrogation
+gear = [] # User Gear
+inventory = [] # User Inventory
 
 # Variables for Assassin
-ass_hp = 50
-ass_att = 7
+ass_hp = 50 # Assassin Health Points 
+ass_att = 7 # Assassin Attack Value
 
 # Variables for Final Boss
-b_hp = 300
-b_att = 31
+b_hp = 300 # Final Boss Health Points
+b_att = 31 # Final Boss Attack Value
 
 
 # Title Page
