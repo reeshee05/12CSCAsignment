@@ -1,4 +1,4 @@
-#Import Tkinker
+# Import Tkinker
 from tkinter import *
 import random
 from PIL import ImageTk, Image
